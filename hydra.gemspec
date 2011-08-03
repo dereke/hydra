@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{hydra}
-  s.version = "0.23.2"
+  s.version = "0.23.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nick Gauthier"]
@@ -31,9 +31,13 @@ Gem::Specification.new do |s|
      "hydra_gray.png",
      "lib/hydra.rb",
      "lib/hydra/cucumber/formatter.rb",
+     "lib/hydra/cucumber/partial_html.rb",
      "lib/hydra/hash.rb",
      "lib/hydra/js/lint.js",
      "lib/hydra/listener/abstract.rb",
+     "lib/hydra/listener/cucumber_html_report.rb",
+     "lib/hydra/listener/cucumber.css",
+     "lib/hydra/listener/jquery-min.js",
      "lib/hydra/listener/minimal_output.rb",
      "lib/hydra/listener/notifier.rb",
      "lib/hydra/listener/progress_bar.rb",
