@@ -69,12 +69,10 @@ module Hydra #:nodoc:
       @sync = opts.fetch('sync') { nil }
       @environment = opts.fetch('environment') { 'test' }
       @options = opts.fetch('options')
-
       if @autosort
         sort_files_from_report
         @event_listeners << Hydra::Listener::ReportGenerator.new(File.new(heuristic_file, 'w'))
       end
-
       # default is one worker that is configured to use a pipe with one runner
       worker_cfg = opts.fetch('workers') { [ { 'type' => 'local', 'runners' => 1} ] }
 
@@ -224,6 +222,7 @@ module Hydra #:nodoc:
     end
 
     def sort_files_from_report
+      begin
       if File.exists? heuristic_file
         report = YAML.load_file(heuristic_file)
         return unless report
@@ -234,6 +233,9 @@ module Hydra #:nodoc:
         sorted_files.each do |f|
           @files.push(@files.delete_at(@files.index(f))) if @files.index(f)
         end
+      end
+      rescue
+        raise "An error occured while trying to process the heuristic file: #{heuristic_file}"
       end
     end
 
