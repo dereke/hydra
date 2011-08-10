@@ -44,6 +44,10 @@ module Hydra #:nodoc:
     # Set to false if you don't want to show the total running time
     attr_accessor :show_time
 
+    # Set to a valid file path if you want to save the output of the runners
+    # in a log file
+    attr_accessor :runner_log_file
+
     #
     # Search for the hydra config file
     def find_config_file
@@ -103,6 +107,7 @@ module Hydra #:nodoc:
         :files => @files,
         :listeners => @listeners,
         :environment => @environment,
+        :runner_log_file => @runner_log_file,
         :options => @options
       }
       if @config
