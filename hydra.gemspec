@@ -50,6 +50,7 @@ Gem::Specification.new do |s|
      "lib/hydra/messaging_io.rb",
      "lib/hydra/pipe.rb",
      "lib/hydra/runner.rb",
+     "lib/hydra/runner_listener/abstract.rb",
      "lib/hydra/safe_fork.rb",
      "lib/hydra/spec/autorun_override.rb",
      "lib/hydra/spec/hydra_formatter.rb",
